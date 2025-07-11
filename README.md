@@ -23,15 +23,37 @@ Every listed company must now disclose Environmental, Social and Governance (ESG
 ## 🧠 3 System Architecture
 
 ```mermaid
+---
+title: ESG-Agent flowchart
+---
+
 graph TD
-    A(User Input: Ticker/Query) --> B[🧭 CoordinatorAgent]
+    A(["User Input: Ticker / Query"]) --> B[🧭 CoordinatorAgent]
     B --> C[🛰️ DataScoutAgent]
     C --> D[📐 ComplianceAnalystAgent]
-    C --> G[🚨 ControversyMonitorAgent]
-    D --> E[📝 ReportGeneratorAgent]
-    G --> E
-    E --> F[🌐 Streamlit UI]
-````
+    C --> E[🚨 ControversyMonitorAgent]
+    D --> F[📝 ReportGeneratorAgent]
+    E --> F
+    F --> G(["🌐 Streamlit UI"])
+
+    %% Assign classes
+    class A input;
+    class B coordinator;
+    class C scout;
+    class D analyst;
+    class E controversy;
+    class F report;
+    class G ui;
+
+    %% Define styles
+    classDef input fill:#E6E6E6,stroke:#999,stroke-width:2px;
+    classDef coordinator fill:#FFE599,stroke:#F1C232,stroke-width:2px;
+    classDef scout fill:#D0E0E3,stroke:#3D85C6,stroke-width:2px;
+    classDef analyst fill:#D9EAD3,stroke:#38761D,stroke-width:2px;
+    classDef controversy fill:#F4CCCC,stroke:#CC0000,stroke-width:2px;
+    classDef report fill:#FCE5CD,stroke:#E69138,stroke-width:2px;
+    classDef ui fill:#CFE2F3,stroke:#6D9EEB,stroke-width:2px;
+```
 
 * **CoordinatorAgent** routes tasks to specialists.
 * **DataScoutAgent** retrieves ESG scores and facts.
